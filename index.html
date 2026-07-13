@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoahGervais - Electronics Shop & Repair</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <header>
+        <div class="logo">Noah<span>Gervais</span></div>
+        <nav>
+            <a href="#shop">Ibicuruzwa</a>
+            <a href="#repair">Gusana</a>
+            <a href="#software">Serivisi za Software</a>
+            <a href="#comments">Ibitekerezo</a>
+            <button onclick="openAdminModal()" class="admin-btn">Admin Login</button>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Uruganda rwiza rwa Tekinoroji n'Ibyuma</h1>
+        <p>Tugurisha ibikoresho bpakurwa kandi tugasana ibyangiritse byose mu buryo bwihuse.</p>
+        <a href="#shop" class="cta-btn">Reba Ibyo Ducuruza</a>
+    </section>
+
+    <!-- SHOP SECTION -->
+    <section id="shop" class="section-container">
+        <h2>Ibyo Ducuruza (Products)</h2>
+        <div class="grid" id="product-list">
+            <!-- Ibi bikurikira bishobora gukurwaho cyangwa kongerwaho na Admin -->
+            <div class="card" data-id="p1">
+                <h3>Chargers (Ubwoko bwose)</h3>
+                <p>Ubwoko bwose bwa charger z'izitandukanye zizewe.</p>
+            </div>
+            <div class="card" data-id="p2">
+                <h3>Phone Batteries</h3>
+                <p>Bateri ziramba ku mafoni yose.</p>
+            </div>
+            <div class="card" data-id="p3">
+                <h3>TV Remote Controllers</h3>
+                <p>Zirizewe ku ma tereviziyo yose.</p>
+            </div>
+            <div class="card" data-id="p4">
+                <h3>Screen Protectors</h3>
+                <p>Ibirinda ibirahuri by'amafoni bikomeye.</p>
+            </div>
+            <div class="card" data-id="p5">
+                <h3>Phone Covers</h3>
+                <p>Ubwoko bwose bwiza bw'amajesi y'amafoni.</p>
+            </div>
+            <div class="card" data-id="p6">
+                <h3>Earphones</h3>
+                <p>Zumvikana neza cyane kandi ziramba.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- REPAIR SECTION -->
+    <section id="repair" class="section-container bg-light">
+        <h2>Ibyo Ducuruza no Gusana (Repairs)</h2>
+        <div class="grid" id="repair-list">
+            <div class="card" data-id="r1"><h3>Televisions</h3></div>
+            <div class="card" data-id="r2"><h3>TV Remotes</h3></div>
+            <div class="card" data-id="r3"><h3>Bulbs</h3></div>
+            <div class="card" data-id="r4"><h3>Telephones</h3></div>
+            <div class="card" data-id="r5"><h3>Laptops</h3></div>
+            <div class="card" data-id="r6"><h3>Desktops</h3></div>
+            <div class="card" data-id="r7"><h3>Projectors</h3></div>
+            <div class="card" data-id="r8"><h3>Printers</h3></div>
+            <div class="card" data-id="r9"><h3>Speakers (Ubwoko bwose)</h3></div>
+            <div class="card" data-id="r10"><h3>Kettles</h3></div>
+        </div>
+    </section>
+
+    <!-- SOFTWARE SECTION -->
+    <section id="software" class="section-container">
+        <h2>Serivisi Nshya za Software</h2>
+        <div class="grid" id="software-list">
+            <div class="card" data-id="s1">
+                <h3>Flashing All Smartphones</h3>
+                <p>Gukora software y'amafoni yose yapfuye cyangwa yabuze kwinjira.</p>
+            </div>
+            <div class="card" data-id="s2">
+                <h3>Changing Logo of Smartphone</h3>
+                <p>Guhindura ikirango (logo) cy'itangira ry'ifoni yawe.</p>
+            </div>
+            <div class="card" data-id="s3">
+                <h3>Unlocking Forgotten Laptop Passwords</h3>
+                <p>Gukura umubare w'ibanga ku masezera ya Laptop wibagiwe.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMENT SECTION -->
+    <section id="comments" class="section-container bg-light">
+        <h2>Siga Igitekerezo cyangwa Ikibazo</h2>
+        <div class="comment-box">
+            <form id="comment-form">
+                <input type="text" id="client-name" placeholder="Izina ryawe" required>
+                <textarea id="client-message" rows="4" placeholder="Andika hano ubutumwa cyangwa ikibazo ufite..." required></textarea>
+                <button type="submit">Vugana na Noah/Gervais</button>
+            </form>
+            <div id="comments-display">
+                <!-- Ibitekerezo biza hano -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMIN MODAL (LOGIN) -->
+    <div id="admin-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAdminModal()">&times;</span>
+            <h3>Kwinjira nka Admin</h3>
+            <input type="password" id="admin-password" placeholder="Andika Password y'ibanga">
+            <button onclick="checkAdminPassword()">Injira</button>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL CONTROLS (Ibona na Admin gusa) -->
+    <div id="admin-panel" class="admin-panel hidden">
+        <h3>Ubuyobozi bwa NoahGervais (Admin Dashboard)</h3>
+        <p>Koresha aka gace ushyiraho cyangwa ukureho ibintu ku rubuga:</p>
+        <div class="admin-controls">
+            <select id="item-category">
+                <option value="product">Ibicuruzwa (Product)</option>
+                <option value="repair">Gusana (Repair)</option>
+                <option value="software">Software Service</option>
+            </select>
+            <input type="text" id="new-item-title" placeholder="Izina ry'igikoresho / Serivisi">
+            <input type="text" id="new-item-desc" placeholder="Ibisobanuro (Bitari ngombwa)">
+            <button onclick="addNewItem()">Simfura ku Rubuga</button>
+        </div>
+        <p style="color: red; margin-top: 10px;">*Kugira ngo ukureho ikintu, kanda kabiri (Double Click) ku gakarita (Card) yacyo mu gihe uri muri Admin Mode.</p>
+        <button onclick="logoutAdmin()" class="logout-btn">Sohoka nka Admin</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 NoahGervais. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
